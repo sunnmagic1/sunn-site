@@ -4,14 +4,24 @@ import MusicSection from "./MusicSection";
 
 function App() {
   return (
-    <div>
-      {/* 🔮 Full-screen Spline animation at the top */}
-      <div style={{ width: "100vw", height: "100vh" }}>
-        <Spline scene="https://prod.spline.design/qXcd22ZmbHMd8ebR/scene.splinecode" />
-      </div>
+    <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+      {/* 🌌 Background Animation */}
+      <Spline
+        scene="https://prod.spline.design/qXcd22ZmbHMd8ebR/scene.splinecode"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      />
 
-      {/* 🎧 Music section right after the Spline scene */}
-      <MusicSection />
+      {/* 🎧 Music Section overlayed on top */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <MusicSection />
+      </div>
     </div>
   );
 }
